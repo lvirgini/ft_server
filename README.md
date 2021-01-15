@@ -1,8 +1,6 @@
-# -------------------------
-# BUT DU PROJET FT_SERVER
-# -------------------------
 
-#	Apprentissage :
+# BUT DU PROJET FT_SERVER
+##	Apprentissage :
 - Découverte de l'administration systeme
 - Automatisation des taches avec des scripts
 - installation et configuration d'un server web
@@ -10,7 +8,7 @@
 - Dockerfiles
 - configuration des services Wordpress, PhpmyAdmin et une base de donnée MySql
 
-#	Consignes : 
+##	Consignes : 
 - Vous devrez, dans un seul container Docker, mettre en place un serveur web avec
 Nginx. Le container devra tourner avec Debian Buster.
 - Votre serveur devra être capable de faire tourner plusieurs services en même temps.
@@ -23,7 +21,7 @@ site.
 - Vous devrez aussi vous assurer que votre serveur tourne avec un index automatique
 qui doit pouvoir être désactivable.
 
-# Précision Amélie (correction): 
+## Précision Amélie (correction): 
 Précisions sur le sujet : 
 
 - Le containeur doit tout télécharger, installer, configurer avec la commande docker build. Aucune manipulation ne doit avoir lieu après cette commande.
@@ -40,21 +38,17 @@ Précisions sur le sujet :
 	- Uploader des tables.
 - Il faut faire attention d'avoir toutes les permissions nécessaires dans le système.
 
-
-
-
-# --------------------
+#
 # 	COMMANDES DOCKER
-# --------------------
 
 	Note : debconf et apt-utils -> ne pas en tenir compte.
 
-# 	construction du container :
+##	construction du container :
 	docker build -t ft_server .
 				-t <nom> 	: tag pour retrouver facilement le container
-				--no-cache 	: sans utiliser les images chaches. 
-#
-	docker run -it ft_server bash 
+				--no-cache 	: sans utiliser les images chaches
+## Lancement du container :
+	docker run -it <ft_server> bash 
 	docker run  --rm -ti -d ft_server -p 80:80  
 				--rm pour supprimer le docker apres le run fini
 				-d detacher du terminal donne l'ID du container 
@@ -62,44 +56,51 @@ Précisions sur le sujet :
 				-i intéractive mode permet d'acceder au STDIN
 				-t active mode TTY permet d'acceder au STDOUT (terminal du container)
 
-#	Gestion des containers :
+##	Gestion des containers :
 Pour garder le container actif :
-	- docker run -it ft_server bash 
-	- CMD bin/bash et docker run -it
+
+	- docker run -it <ft_server> bash 
+	- CMD bin/bash et docker run -it //////////// nope
+##
 	docker ps 		: lister les containers en cours
 	docker images 	: lister les images deja creees (cache)
 	docker stop <id>: arrete le container id
 	docker rm <id> 	: supprime le container id
 	docker rmi <id> : supprime l'image id (c'est le cache des containers)
-	
+
 	->	docker stop $(docker ps -a -q)
 	->	docker rm $(docker ps -a -q)
 	->  docker rmi $(docker images -a -q) puis sudo service docker restart 
 
 	docker exec -ti <id> bash : on rentre dans le docker en root et sur bash.
 	
-#	Si probleme : 
-supprimer toutes les images et containers avec les trois commandes plus haut ->
-					puis sudo service docker restart
+## Si probleme : 
+supprimer toutes les images et containers avec les trois commandes plus haut ->	puis sudo service docker restart
 
+#
 # DOCKERFILE :
+
+sur linux par defaut: ["/bin/sh", "-c"]
+	
+	SHELL ["/bin/bash", "-c"] 
 	ADD /hote /dest	: /hote peut etre une URL
 	COPY 			:est la meme chose mais interne
-	if ADD .sh RUN chmode 755 /dest.sh
+	if ADD .sh -> RUN chmode 755 /dest.sh
 	EXPOSE: le docker ecoute le port indique
-			if 80:80 : impose l'ecoute sur le port 80 de l'ordi
+			if 80:80 : impose l'ecoute sur le port 80 de l'ordi ///////////////
 			ce qui empeche de lancer deux fois le meme container
 			un port ne peut etre utiliser que par un seul process
 
-	CMD : executé par default lors du run. (1 seule cmd CMD)
-	Attention si docker run est lancé avec une instruction, CMD est tout simplement écrasé par l'instruction.
-		ex: CMD "start.sh"  docker run ft_service bash 
-	ENV = variable environnement valable dans tout le container
-	ENV = suivi d'une commande : la variable n'est valable que pour la commande.
+	CMD 	executé par default lors du run. (1 seule cmd CMD)
+			Attention si docker run est lancé avec une instruction,
+			CMD est tout simplement écrasé par l'instruction.
+			ex: CMD "start.sh"  docker run ft_service bash 
+	ENV =	variable environnement valable dans tout le container
+	ENV = 	suivi d'une commande : la variable n'est valable que pour la commande.
 	ENTRYPOINT : ["commandes ou chemin"] : point d'entrée.
-	WORKDIR : repertoire par default de travail a l'ouverture du bash du container
+	WORKDIR repertoire par default de travail a l'ouverture du bash du container
 
-# --------------
+#
 # INSTALATIONS
-# --------------
+
 
