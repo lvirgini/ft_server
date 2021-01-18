@@ -103,4 +103,24 @@ sur linux par defaut: ["/bin/sh", "-c"]
 #
 # INSTALATIONS
 
+## Configuration LEMP : linux + nginx + mysql + php
+- installation LEMP : https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04#step-3-%E2%80%93-installing-php-and-configuring-nginx-to-use-the-php-processor
+- certificat SSL : https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-18-04#step-2-%E2%80%93-configuring-nginx-to-use-ssl
 
+## Configuration Mysql via Mariadb : 							
+ 	mysql -e "" :	
+	 	CREATE DATABASE <database_name>
+		CREATE USER <nom> 	: creation utilisateur "nom"
+		@"domaine" 			: uniquement sur le domaine "domaine"
+		IDENTIFIED BY <mdp>	: identifie avec le mdp
+		"GRANT ALL ON " <database> ".* TO <user_name> @ <domaine> WITH GRANT OPTION;"
+
+
+## Configuration Wordpress : 
+- installation : 
+https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-lemp-on-ubuntu-18-04
+
+- fichier wp-config : 
+https://fr.wordpress.org/support/article/editing-wp-config-php/
+
+- fichier wordpress.conf : 
