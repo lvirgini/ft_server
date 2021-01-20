@@ -8,6 +8,16 @@
 - Dockerfiles
 - configuration des services Wordpress, PhpmyAdmin et une base de donnée MySql
 
+## RESTANT a faire :
+#
+- config phpmyadmin
+- "Vous devrez aussi vous assurer que votre serveur tourne avec un index automatique
+qui doit pouvoir être désactivable."
+- "Vous devrez vous assurer que, selon l’url tapé, votre server redirige vers le bon
+site."
+- 	Il faut aussi vérifier d'avoir les bonnes extensions de PHP.
+#
+
 ##	Consignes : 
 - Vous devrez, dans un seul container Docker, mettre en place un serveur web avec
 Nginx. Le container devra tourner avec Debian Buster.
@@ -60,7 +70,7 @@ Précisions sur le sujet :
 Pour garder le container actif :
 
 	- docker run -it <ft_server> bash 
-	- CMD bin/bash et docker run -it //////////// nope
+	- CMD bin/bash permet de garder le docker actif avec docker run -d
 ##
 	docker ps 		: lister les containers en cours
 	docker images 	: lister les images deja creees (cache)
@@ -87,7 +97,7 @@ sur linux par defaut: ["/bin/sh", "-c"]
 	COPY 			:est la meme chose mais interne
 	if ADD .sh -> RUN chmode 755 /dest.sh
 	EXPOSE: le docker ecoute le port indique
-			if 80:80 : impose l'ecoute sur le port 80 de l'ordi ///////////////
+			if 80:80 : impose l'ecoute sur le port 80 de l'ordi
 			ce qui empeche de lancer deux fois le meme container
 			un port ne peut etre utiliser que par un seul process
 
@@ -98,7 +108,7 @@ sur linux par defaut: ["/bin/sh", "-c"]
 	ENV =	variable environnement valable dans tout le container
 	ENV = 	suivi d'une commande : la variable n'est valable que pour la commande.
 	ENTRYPOINT : ["commandes ou chemin"] : point d'entrée.
-	WORKDIR repertoire par default de travail a l'ouverture du bash du container
+	WORKDIR repertoire par default de travail a l'ouverture du container
 
 #
 # INSTALATIONS
@@ -123,4 +133,7 @@ https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-l
 - fichier wp-config : 
 https://fr.wordpress.org/support/article/editing-wp-config-php/
 
-- fichier wordpress.conf : 
+## Configuration phpMyAdmin : 
+- installation : https://www.codeflow.site/fr/article/how-to-install-phpmyadmin-from-source-debian-10
+
+- configuration : https://docs.phpmyadmin.net/en/latest/config.html#basic-settings

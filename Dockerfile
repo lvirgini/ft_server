@@ -6,7 +6,7 @@
 #    By: lvirgini <lvirgini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/24 13:34:24 by lvirgini          #+#    #+#              #
-#    Updated: 2021/01/18 13:58:51 by lvirgini         ###   ########.fr        #
+#    Updated: 2021/01/18 19:10:08 by lvirgini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ RUN apt-get -y install wget nginx-full mariadb-server mariadb-client \
 #	Configuration	
 # -----------------
 
-# NGINX :
+# NGINX et SSL:
  
 RUN rm /etc/nginx/sites-enabled/default 			 && \
 	openssl req -x509 -nodes -days 1 -newkey rsa:2048 	\
@@ -47,9 +47,11 @@ COPY    srcs/wp-config.php /var/www/wordpress
 
 # PHP MY ADMIN : 
 
-RUN 	wget https://files.phpmyadmin.net/phpMyAdmin/4.9.5/phpMyAdmin-4.9.5-all-languages.tar.gz && \
-		tar -xzf phpMyAdmin-4.9.5-all-languages.tar.gz -C /var/www/ 	&& \
+RUN 	mkdir var/www/phpMyAdmin && \
+		wget https://files.phpmyadmin.net/phpMyAdmin/4.9.5/phpMyAdmin-4.9.5-all-languages.tar.gz   && \
+		tar -xzf phpMyAdmin-4.9.5-all-languages.tar.gz --strip-components 1 -C /var/www/phpMyAdmin && \
 		rm phpMyAdmin-4.9.5-all-languages.tar.gz
+COPY  	srcs/config.inc.php /var/www/phpMyAdmin
 
 
 COPY 	srcs/init.sh /usr/bin/init.sh
