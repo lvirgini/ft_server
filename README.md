@@ -115,8 +115,9 @@ sur linux par defaut: ["/bin/sh", "-c"]
 
 ## Configuration LEMP : linux + nginx + mysql + php
 - installation LEMP : https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04#step-3-%E2%80%93-installing-php-and-configuring-nginx-to-use-the-php-processor
-- certificat SSL : https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-18-04#step-2-%E2%80%93-configuring-nginx-to-use-ssl
-
+- certificat SSL : 	https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-18-04#step-2-%E2%80%93-configuring-nginx-to-use-ssl
+					https://docs.nginx.com/nginx/admin-guide/security-controls/terminating-ssl-http/
+		pour ft_server : le faire en interne puis copier directement les documents clé et certificat.
 ## Configuration Mysql via Mariadb : 							
  	mysql -e "" :	
 	 	CREATE DATABASE <database_name>
@@ -136,4 +137,5 @@ https://fr.wordpress.org/support/article/editing-wp-config-php/
 ## Configuration phpMyAdmin : 
 - installation : https://www.codeflow.site/fr/article/how-to-install-phpmyadmin-from-source-debian-10
 
-- configuration : https://docs.phpmyadmin.net/en/latest/config.html#basic-settings
+- configuration :	https://docs.phpmyadmin.net/en/latest/config.html#basic-settings
+					https://docs.phpmyadmin.net/fr/latest/config.html
