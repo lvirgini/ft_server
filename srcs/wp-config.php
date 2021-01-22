@@ -25,7 +25,7 @@
 define( 'DB_NAME', 'wordpress' );
 
 /** Utilisateur de la base de données MySQL. */
-define( 'DB_USER', 'wordpress_user' );
+define( 'DB_USER', 'wp_admin' );
 
 /** Mot de passe de la base de données MySQL. */
 define( 'DB_PASSWORD', 'password' );

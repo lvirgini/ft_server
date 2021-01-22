@@ -6,7 +6,7 @@
 #    By: lvirgini <lvirgini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/24 13:34:24 by lvirgini          #+#    #+#              #
-#    Updated: 2021/01/21 17:14:02 by lvirgini         ###   ########.fr        #
+#    Updated: 2021/01/22 11:53:48 by lvirgini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,6 @@ RUN apt-get -y install wget nginx-full mariadb-server mariadb-client \
 # NGINX et SSL:
 
 RUN rm /etc/nginx/sites-enabled/default 			 && \
-	rm -rf var/www/html								 && \
 	openssl req -x509 -nodes -days 1 -newkey rsa:2048 	\
 	-keyout etc/ssl/private/ft_server_key.pem			\
 	-out etc/ssl/certs/ft_server_cert.pem 				\

@@ -11,7 +11,7 @@ service mysql start
 
 # CONFIGURATION MYSQL MARIADB : 							
 mysql -e 	"CREATE DATABASE wordpress;
-			GRANT ALL ON wordpress.* TO 'wordpress'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;
+			GRANT ALL ON wordpress.* TO 'wp_admin'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;
 			FLUSH PRIVILEGES;"
 echo		"configuration mysql DONE"
 
