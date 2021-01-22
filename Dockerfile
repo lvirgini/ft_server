@@ -6,7 +6,7 @@
 #    By: lvirgini <lvirgini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/24 13:34:24 by lvirgini          #+#    #+#              #
-#    Updated: 2021/01/22 13:42:56 by lvirgini         ###   ########.fr        #
+#    Updated: 2021/01/22 14:40:51 by lvirgini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ RUN apt-get -y install wget nginx-full mariadb-server mariadb-client \
 
 COPY srcs/	tmp/
 
+
 # NGINX et SSL:
 
 RUN rm /etc/nginx/sites-enabled/default 				&& \
@@ -35,6 +36,7 @@ RUN rm /etc/nginx/sites-enabled/default 				&& \
 	-out etc/ssl/certs/ft_server_cert.pem 				\
 	-subj "/C=FR/ST=FRANCE/L=PARIS/O=FTSERVER/CN=127.0.0.1" && \
 	openssl dhparam -out /etc/nginx/dhparam.pem 2048
+
 
 # WORDPRESS
 
