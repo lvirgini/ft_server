@@ -6,9 +6,14 @@
 #    By: lvirgini <lvirgini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/24 13:34:24 by lvirgini          #+#    #+#              #
-#    Updated: 2021/01/22 14:40:51 by lvirgini         ###   ########.fr        #
+#    Updated: 2021/02/09 18:09:33 by lvirgini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+# -----
+#	docker build -t ft_server .
+#	docker run -ti -p 80:80 -p 443:443 -e AUTOINDEX=off ft_server bash
+# -----
 
 FROM debian:buster
 
